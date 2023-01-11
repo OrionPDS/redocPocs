@@ -24,4 +24,3 @@ steps:
     sourceFolder: 'openapi/'
     globExpressions: 'redoc-static.html'
     targetFolder: '/apis/$(Build.Repository.Name)'
-    filesAcl: 'public-read'
