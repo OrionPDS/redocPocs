@@ -3,6 +3,9 @@ trigger:
 
 pool: pool-ec2 
 
+variables:
+  ApiName: redocpocs
+
 steps:    
 
 - task: NodeTool@0
@@ -23,4 +26,4 @@ steps:
     bucketName: 'staticdocumentsredocly'
     sourceFolder: 'openapi/'
     globExpressions: 'redoc-static.html'
-    targetFolder: 'apis/$(Build.Repository.Name)'
+    targetFolder: 'apis/$(ApiName)'
