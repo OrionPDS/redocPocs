@@ -1,0 +1,26 @@
+trigger:
+- main
+
+pool: pool-ec2 
+
+steps:    
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm i -g redoc-cli
+    redoc-cli build openapi.yaml -t custom.hbs --templateOptions.metaDescription "Page meta description"
+  displayName: 'npm install'
+
+- task: S3Upload@1
+  inputs:
+    awsCredentials: 'aws'
+    regionName: 'us-east-1'
+    bucketName: 'staticdocumentsredocly'
+    sourceFolder: 'openapi/'
+    globExpressions: 'redoc-static.html'
+    targetFolder: '/apis/$(Build.Repository.Name)'
+    filesAcl: 'public-read'
