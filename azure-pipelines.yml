@@ -23,4 +23,4 @@ steps:
     bucketName: 'staticdocumentsredocly'
     sourceFolder: 'openapi/'
     globExpressions: 'redoc-static.html'
-    targetFolder: '/apis/$(Build.Repository.Name)'
+    targetFolder: 'apis/$(Build.Repository.Name)'
