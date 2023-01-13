@@ -14,9 +14,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    cd openapi
     npm i -g redoc-cli
-    redoc-cli build openapi.yaml -t custom.hbs --templateOptions.metaDescription "Page meta description"
+    redoc-cli build openapi/openapi.yaml -t custom.hbs --templateOptions.metaDescription "Page meta description"
   displayName: 'npm install'
 
 - task: S3Upload@1
