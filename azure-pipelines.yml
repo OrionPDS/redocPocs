@@ -25,5 +25,6 @@ steps:
     regionName: 'us-east-1'
     bucketName: 'staticdocumentsredocly'
     sourceFolder: '*'
-    globExpressions: 'redoc-static.html'
+    globExpressions: '$(Build.SourcesDirectory)'
     targetFolder: 'apis/$(ApiName)'
+    
